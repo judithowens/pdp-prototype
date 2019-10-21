@@ -1,0 +1,23 @@
+<% if current_user %>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+        <span class="navbar-brand">
+            Signed in as: <%= current_user.email %>
+        </span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Home</a>
+                <a class="nav-item nav-link" href="#">Features</a>
+            </div>
+            <div class="navbar-nav ml-md-auto">
+                <form class="form-inline">
+                    <%=
+                        link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger my-2 my-sm-0 float-right')
+                    %>
+                </form>
+            </div>
+        </div>
+    </nav>
+<% end %>

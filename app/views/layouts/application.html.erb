@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head lang="en">
-    <title>PdpPrototype</title>
+    <title>Personal Development Plan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
@@ -12,18 +12,20 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <p class="float-right">
-        <%= current_user.email %>
-        <%=
-          link_to_if(current_user.nil?, "Login", sign_in_path, class: 'btn btn-primary m-5') do
-            link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
-          end
-        %>
-      </p>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container-fluid">
+      <header id="header" class="row">
+        <div class="col-12">
+          <%= render 'layouts/header' %>
+        </div>
+      </header>
+      <section id="messages" class="row">
+        <div class="col-12">
+          <%= render 'layouts/messages' %>
+        </div>
+      </section>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
