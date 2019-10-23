@@ -1,0 +1,54 @@
+<div class="row">
+    <h2 class="col-10 m-5">Add a qualification</h2>
+</div>
+<div class="row">
+    <section class="col-10 offset-1">
+        <%= form_with model: @qualification, url: user_qualifications_path, local: true do |form| %>
+            <%= render "shared/error_messages", resource: @qualification %>
+            <div class="form-group row">
+                <%= form.label :name, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                    <%= form.text_field :name, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <%= form.label :awarded_date, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                    <%= form.date_field :awarded_date, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <%= form.label :grade, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                    <%= form.text_field :grade, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <%= form.label :details, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                    <%= form.text_area :details, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <%= form.label :expiry_date, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                    <%= form.date_field :expiry_date, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group row">
+                <%= form.label :certificate, class: 'col-sm-2 col-form-label' %>
+                <div class="col-sm-5">
+                <div class="custom-file">
+                    <%= form.label :certificate, "Choose a file to upload...", class: 'custom-file-label' %>
+                    <%= form.file_field :certificate, multiple: false, class: 'custom-file-input' %>
+                </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 offset-2">
+                    <%= form.submit 'Add qualification', class: 'btn btn-primary m-2'%>
+                </div>
+            </div>
+        <% end %>
+    </section>
+</div>

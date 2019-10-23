@@ -18,7 +18,9 @@ require("channels")
 
 import '../stylesheets/main'
 import 'bootstrap/dist/js/bootstrap'
+import bsCustomFileInput from 'bs-custom-file-input'
 
 document.addEventListener("turbolinks:load", () => {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
+    bsCustomFileInput.init();
 })

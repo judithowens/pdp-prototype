@@ -1,0 +1,26 @@
+<div class="row">
+  <h1 class="col-10 offset-1">Personal Development Plan</h1>
+</div>
+<div class="row">
+  <h2 class="col-10 offset-1">My details</h2>
+</div>
+<div class="row">
+  <p class="col-1 offset-1"><strong>Email:</strong></p>
+  <p class="col-2"><%= @user.email%></p>
+</div>
+<div class="row">
+  <p class="col-1 offset-1"><strong>Role:</strong></p>
+  <p class="col-2"><%= @role %></p>
+  <p class="col-2 offset-1">[<%= link_to('Set role', [:edit, @user]) %>]</p>
+</div>
+<div class="row">
+</div>
+<div class="row">
+  <h2 class="col-10 offset-1">Qualifications</h2>
+</div>
+<div class="row">
+  <%= render(partial: 'qualifications/qualification', collection: @qualifications, layout: 'qualifications/qualifications_list') || '<p class="col-10 offset-1">You have no qualifications to list.</p>'.html_safe %>
+</div>
+<div class="row">
+  <p class="col-2 offset-1">[<%= link_to('Add qualification', new_user_qualification_path(@user)) %>]</p>
+</div>
