@@ -19,7 +19,9 @@
   <h2 class="col-10 offset-1">Qualifications</h2>
 </div>
 <div class="row">
-  <%= render(partial: 'qualifications/qualification', collection: @qualifications, layout: 'qualifications/qualifications_list') || '<p class="col-10 offset-1">You have no qualifications to list.</p>'.html_safe %>
+  <div class="col-10 offset-1">
+    <%= render(partial: 'qualifications/qualification', collection: @qualifications, layout: 'qualifications/qualifications_list') || '<p>You have no qualifications to list.</p>'.html_safe %>
+  </div>
 </div>
 <div class="row">
   <p class="col-2 offset-1">[<%= link_to('Add qualification', new_user_qualification_path(@user)) %>]</p>

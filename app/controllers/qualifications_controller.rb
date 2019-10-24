@@ -6,8 +6,10 @@ class QualificationsController < ApplicationController
     def create
         @user = User.find(params[:user_id])
         @qualification = @user.qualifications.create(qualification_params)
-        if @qualification.save!
+        if @qualification.save
             redirect_to root_path
+        else
+            render 'new'
         end
     end
 
