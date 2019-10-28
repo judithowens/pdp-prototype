@@ -1,10 +1,10 @@
 <div class="row">
-    <h2 class="col-10 m-5">Add a qualification</h2>
+    <h2 class="col-10 m-5"><%= @method %> a qualification</h2>
 </div>
 
 <div class="row">
     <section class="col-10 offset-1">
-        <%= bootstrap_form_with(model: @qualification, url: user_qualifications_path, local: true, layout: :horizontal, class: 'needs-validation', html: { novalidate: true}) do |f| %>
+        <%= bootstrap_form_with(model: @qualification, local: true, layout: :horizontal, class: "needs-validation", html: { novalidate: true}) do |f| %>
             <%= f.alert_message "Please fix the errors below." %>
             <%= f.text_field :name, required: true %>
             <%= f.date_field :awarded_date, required: true, max: Date.today %>
@@ -12,7 +12,11 @@
             <%= f.text_area :details %>
             <%= f.date_field :expiry_date %>
             <%= f.file_field :certificate, multiple: false %>
-            <%= f.primary 'Add qualification' %>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-2">
+                    <%= f.primary "#{@method} qualification" %>
+                </div>
+            </div>
         <% end %>
     </section>
 </div>
