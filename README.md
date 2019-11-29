@@ -1,24 +1,5 @@
-# README
+# Personal Development Plan Database
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website is entirely for me to practice/relearn Ruby on Rails more modern than my previous projects - as such it's not strictly meant for anything just yet.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Proper branching strategies will be applied once I have the absolute minimum done (which will probably be once I have Qualifications fully tested).

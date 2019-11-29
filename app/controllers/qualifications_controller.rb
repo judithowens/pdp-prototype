@@ -1,6 +1,7 @@
 class QualificationsController < ApplicationController
     def new
-        @qualification = Qualification.new()
+        @qualification = Qualification.new
+        @user = User.find(params[:user_id])
         @method = 'Add'
         render 'qualifications_form'
     end
@@ -16,6 +17,7 @@ class QualificationsController < ApplicationController
     end
 
     def edit
+        @user = User.find(params[:user_id])
         @qualification = Qualification.find(params[:id])
         @method = 'Edit'
         render 'qualifications_form'

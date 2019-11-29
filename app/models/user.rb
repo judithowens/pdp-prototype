@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   has_many :qualifications, dependent: :destroy
   belongs_to :role
+
+  validates :email, presence: true
 end

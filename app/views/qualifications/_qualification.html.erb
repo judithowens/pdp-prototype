@@ -4,32 +4,36 @@
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#qualification-collapse-<%= qualification_counter %>" aria-expanded="true" aria-controls="qualification-collapse-<%= qualification_counter %>">
                 <%= qualification.name %> - Awarded on <%= qualification.awarded_date %>
             </button>
-            <%= link_to("Update qualification", edit_user_qualification_path(@user, qualification), class: "btn btn-secondary") %>
         </h2>
     </div>
 
     <div id="qualification-collapse-<%= qualification_counter %>" class="collapse" aria-labelledby="qualification-heading-<%= qualification_counter %>" data-parent="#qualifications">
         <div class="card-body">
             <div class="row m-2">
-                <p class="col-sm-1"><strong>Grade: </strong></p>
-                <p class="col-sm-10"><%= qualification.grade || "None supplied" %></p>
+                <p class="col-sm-2"><strong>Grade: </strong></p>
+                <p class="col-sm-10"><%= qualification.grade.present? ? qualification.grade : "None supplied" %></p>
             </div>
             <div class="row m-2">
-                <p class="col-sm-1"><strong>Details: </strong></p>
+                <p class="col-sm-2"><strong>Details: </strong></p>
                 <p class="col-sm-10"><%= qualification.details.present? ? qualification.details : "None supplied" %></p>
             </div>
             <div class="row m-2">
-                <p class="col-sm-1"><strong>Expiry: </strong></p>
+                <p class="col-sm-2"><strong>Expiry: </strong></p>
                 <p class="col-sm-10"><%= qualification.expiry_date || "N/A" %></p>
             </div>
             <div class="row m-2">
-                <p class="col-sm-1"><strong>Certificate: </strong></p>
+                <p class="col-sm-2"><strong>Certificate: </strong></p>
                 <p class="col-sm-10">
                     <% if qualification.certificate.present? %>
                         [<%= link_to('Download certificate', rails_blob_path(qualification.certificate, disposition: "attachment")) %>]
                     <% else %>
                         No certificate attached.
                     <% end %>
+                </p>
+            </div>
+            <div class="row m-2">
+                <p class="col-sm-2">
+                    <%= link_to("Update qualification", edit_user_qualification_path(@user, qualification), class: "btn btn-secondary") %>
                 </p>
             </div>
         </div>

@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :qualifications
   end
 
-  resources :roles
+  resources :role_groups do
+    resources :roles
+  end
 
   root to: "users#show"
 end
